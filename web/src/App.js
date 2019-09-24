@@ -44,7 +44,7 @@ function App() {
                         <Card.Body>
                             <Card.Title>Identificer Stakeholder</Card.Title>
                             <Card.Text>
-                                I dette afsnit skal du identificere dine Stakeholders. Hvad er en stakkeholder?
+                                I dette afsnit skal du identificere dine Stakeholders. Hvad er en stakeholder?
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -66,7 +66,7 @@ function App() {
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stakkeholder" />
+                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stakeholder" />
                                     </Col>
                                     <Col>
                                         <Button variant="outline-primary">Tilføj</Button>
