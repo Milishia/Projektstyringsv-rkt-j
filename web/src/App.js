@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Navbar from 'react-bootstrap/Navbar'
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import {Nav, NavItem, Navbar, NavDropdown} from 'react-bootstrap';
 
 import './App.css';
 
@@ -18,7 +17,7 @@ function App() {
         <Container>
             <Row>
 
-                <Col>
+                <Col>{/*1 of 1*/}
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,15 +26,25 @@ function App() {
 
             </Row>
             <Row>
-                <Col>1 of 3</Col>
-                <Col xs={6}>
+                <Col> {/*1 of 3*/}
+
+                    <Nav>
+                        <Nav.Item>
+                            <Nav.Link >Stackeholders</Nav.Link>
+                            <Nav.Link >Identificer Key Stackeholders</Nav.Link>
+                            <Nav.Link >Project Scope</Nav.Link>
+                            <Nav.Link >Risk Management</Nav.Link>
+                            <Nav.Link >Closing Checklist</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+
+                </Col>
+                <Col xs={6}> {/*2 of 3*/}
                     <Card style={{ width: '33.6rem' }}>
                         <Card.Body>
-                            <Card.Title>Info</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Identificer Stackeholder</Card.Title>
                             <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                I dette afsnit skal du identificere dine Stackeholders. Hvad er en stackeholder?
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -57,10 +66,10 @@ function App() {
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control size="xs" type="text" placeholder="Small text" />
+                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stackeholder" />
                                     </Col>
                                     <Col>
-                                        <Button variant="primary">Primary</Button>
+                                        <Button variant="outline-primary">Tilføj</Button>
                                     </Col>
                                     </Form.Row>
 
@@ -73,7 +82,11 @@ function App() {
                     </Table>
 
                 </Col>
-                <Col>3 of 3</Col>
+                <Col> {/*3 of 3*/}
+
+                    <Button variant="primary">Gå til næste side</Button>
+
+                </Col>
             </Row>
         </Container>
 
