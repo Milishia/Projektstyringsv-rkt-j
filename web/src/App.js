@@ -30,8 +30,8 @@ function App() {
 
                     <Nav>
                         <Nav.Item>
-                            <Nav.Link >Stackeholders</Nav.Link>
-                            <Nav.Link >Identificer Key Stackeholders</Nav.Link>
+                            <Nav.Link >Identificer Stakeholders</Nav.Link>
+                            <Nav.Link >Identificer Key Stakeholders</Nav.Link>
                             <Nav.Link >Project Scope</Nav.Link>
                             <Nav.Link >Risk Management</Nav.Link>
                             <Nav.Link >Closing Checklist</Nav.Link>
@@ -42,9 +42,9 @@ function App() {
                 <Col xs={6}> {/*2 of 3*/}
                     <Card style={{ width: '33.6rem' }}>
                         <Card.Body>
-                            <Card.Title>Identificer Stackeholder</Card.Title>
+                            <Card.Title>Identificer Stakeholder</Card.Title>
                             <Card.Text>
-                                I dette afsnit skal du identificere dine Stackeholders. Hvad er en stackeholder?
+                                I dette afsnit skal du identificere dine Stakeholders. Hvad er en stakkeholder?
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -66,7 +66,7 @@ function App() {
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stackeholder" />
+                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stakkeholder" />
                                     </Col>
                                     <Col>
                                         <Button variant="outline-primary">Tilføj</Button>
