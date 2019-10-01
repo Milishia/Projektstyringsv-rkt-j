@@ -32,8 +32,11 @@ function App() {
                         <Nav.Item>
                             <Nav.Link >Identificer Stakeholders</Nav.Link>
                             <Nav.Link >Identificer Key Stakeholders</Nav.Link>
-                            <Nav.Link >Project Scope</Nav.Link>
-                            <Nav.Link >Risk Management</Nav.Link>
+                            <Nav.Link >Project Scope Statement</Nav.Link>
+                            <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
+                            <Nav.Link >Identificer risici</Nav.Link>
+                            <Nav.Link >Vurder risici</Nav.Link>
+                            <Nav.Link >Imødekom risici</Nav.Link>
                             <Nav.Link >Closing Checklist</Nav.Link>
                         </Nav.Item>
                     </Nav>
@@ -44,7 +47,7 @@ function App() {
                         <Card.Body>
                             <Card.Title>Identificer Stakeholder</Card.Title>
                             <Card.Text>
-                                I dette afsnit skal du identificere dine Stakeholders. Hvad er en stakeholder?
+                                I dette afsnit skal du identificere dine Stakeholders. En Stakeholder kan være en person eller organisation, der bliver vil blive påvirket af projektet, enten negativt eller positivt.
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -53,7 +56,7 @@ function App() {
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>First Name</th>
+                            <th>Navn på Stakeholder</th>
                         </tr>
                         </thead>
                         <tbody>
