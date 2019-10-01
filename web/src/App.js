@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,8 +8,11 @@ import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {Nav, NavItem, Navbar, NavDropdown} from 'react-bootstrap';
-
 import './App.css';
+import StakeholderStore from "./StakeholderStore";
+import {observer} from "mobx-react";
+
+const stakeholderstore  = new StakeholderStore();
 
 function App() {
   return (
@@ -32,8 +35,11 @@ function App() {
                         <Nav.Item>
                             <Nav.Link >Identificer Stakeholders</Nav.Link>
                             <Nav.Link >Identificer Key Stakeholders</Nav.Link>
-                            <Nav.Link >Project Scope</Nav.Link>
-                            <Nav.Link >Risk Management</Nav.Link>
+                            <Nav.Link >Project Scope Statement</Nav.Link>
+                            <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
+                            <Nav.Link >Identificer risici</Nav.Link>
+                            <Nav.Link >Vurder risici</Nav.Link>
+                            <Nav.Link >Imødekom risici</Nav.Link>
                             <Nav.Link >Closing Checklist</Nav.Link>
                         </Nav.Item>
                     </Nav>
@@ -44,7 +50,7 @@ function App() {
                         <Card.Body>
                             <Card.Title>Identificer Stakeholder</Card.Title>
                             <Card.Text>
-                                I dette afsnit skal du identificere dine Stakeholders. Hvad er en stakeholder?
+                                I dette afsnit skal du identificere dine Stakeholders. En Stakeholder kan være en person eller organisation, der bliver vil blive påvirket af projektet, enten negativt eller positivt.
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -53,23 +59,21 @@ function App() {
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>First Name</th>
+                            <th>Navn på Stakeholder</th>
                         </tr>
                         </thead>
                         <tbody>
+                        {stakeholderstore.stakeholders.map((stakeholderName, key)=>
+                            (<tr> <td> {key+1} </td><td> {stakeholderName} </td> </tr>))}
                             <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
+                                <td></td>
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stakeholder" />
+                                        <Form.Control value={stakeholderstore.newStakeHolder} size="xs" type="text" placeholder="Indskriv din stakeholder" onChange={(e)=>stakeholderstore.newStakeHolder = e.target.value}/>
                                     </Col>
                                     <Col>
-                                        <Button variant="outline-primary">Tilføj</Button>
+                                        <Button variant="outline-primary" onClick={()=>stakeholderstore.addStakeHolder(stakeholderstore.newStakeHolder)}>Tilføj</Button>
                                     </Col>
                                     </Form.Row>
 
@@ -93,4 +97,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

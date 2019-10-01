@@ -1,10 +1,10 @@
-How to setup the projekt
+How to setup the project
 --
 Download Node.js https://nodejs.org/en/download/ <br>
 
 Next Clone git repository.  <br>
 
-Tjek at projektet er genkendt som et MavenProjekt  <br>
+Make sure the project is recognized as a Maven Project  <br>
 
 - Højrekilk på projektmappen i din IDE
 
@@ -12,8 +12,7 @@ Tjek at projektet er genkendt som et MavenProjekt  <br>
     Add Frameworksupport -> Maven -> OK
 
 <br>
-
-- Åben terminalen i din IDE og navigere til web folderen
+- Open the Terminal in your IDE and navigate to the web folderen and run npm install then npm start
 
 
     cd web
