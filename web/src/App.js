@@ -78,7 +78,6 @@ function App() {
                             </tr>
 
                         </tbody>
-
                     </Table>
 
                 </Col>
