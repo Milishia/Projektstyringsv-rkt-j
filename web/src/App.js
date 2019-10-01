@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,8 +8,11 @@ import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {Nav, NavItem, Navbar, NavDropdown} from 'react-bootstrap';
-
 import './App.css';
+import StakeholderStore from "./StakeholderStore";
+import {observer} from "mobx-react";
+
+const stakeholderstore  = new StakeholderStore();
 
 function App() {
   return (
@@ -60,19 +63,17 @@ function App() {
                         </tr>
                         </thead>
                         <tbody>
+                        {stakeholderstore.stakeholders.map((stakeholderName, key)=>
+                            (<tr> <td> {key+1} </td><td> {stakeholderName} </td> </tr>))}
                             <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
+                                <td></td>
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control size="xs" type="text" placeholder="Indskriv din stakeholder" />
+                                        <Form.Control value={stakeholderstore.newStakeHolder} size="xs" type="text" placeholder="Indskriv din stakeholder" onChange={(e)=>stakeholderstore.newStakeHolder = e.target.value}/>
                                     </Col>
                                     <Col>
-                                        <Button variant="outline-primary">Tilføj</Button>
+                                        <Button variant="outline-primary" onClick={()=>stakeholderstore.addStakeHolder(stakeholderstore.newStakeHolder)}>Tilføj</Button>
                                     </Col>
                                     </Form.Row>
 
@@ -97,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);
