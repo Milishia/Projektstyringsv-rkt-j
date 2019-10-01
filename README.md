@@ -12,6 +12,7 @@ Tjek at projektet er genkendt som et MavenProjekt  <br>
     Add Frameworksupport -> Maven -> OK
 
 <br>
+
 - Åben terminalen i din IDE og navigere til web folderen
 
 
