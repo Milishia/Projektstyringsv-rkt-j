@@ -60,24 +60,41 @@ function App() {
                         <tr>
                             <th>#</th>
                             <th>Navn på Stakeholder</th>
+                            <th>E-mail på Stakeholder</th>
                         </tr>
                         </thead>
                         <tbody>
+
                         {stakeholderstore.stakeholders.map((stakeholderName, key)=>
-                            (<tr> <td> {key+1} </td><td> {stakeholderName} </td> </tr>))}
+                            <tr key={key}><td>{key+1}</td><td>{stakeholderName.name}</td><td>{stakeholderName.email}</td></tr>)}
+
+
+
                             <tr>
-                                <td></td>
+                                <td> </td>
                                 <td>
                                     <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control value={stakeholderstore.newStakeHolder} size="xs" type="text" placeholder="Indskriv din stakeholder" onChange={(e)=>stakeholderstore.newStakeHolder = e.target.value}/>
+                                        <Form.Control value={stakeholderstore.newStakeholderName} size="xs" type="text" placeholder="Indskriv navn" onChange={(e)=>stakeholderstore.newStakeholderName = e.target.value}/>
                                     </Col>
-                                    <Col>
-                                        <Button variant="outline-primary" onClick={()=>stakeholderstore.addStakeHolder(stakeholderstore.newStakeHolder)}>Tilføj</Button>
-                                    </Col>
+
                                     </Form.Row>
 
                                 </td>
+                                <td>
+                                    <Form.Row>
+                                        <Col sm={"9"}>
+                                            <Form.Control value={stakeholderstore.newStakeholderEmail} size="xs" type="text" placeholder="Indskriv E-mail" onChange={(e)=>stakeholderstore.newStakeholderEmail = e.target.value}/>
+                                        </Col>
+                                        <Col>
+                                            <Button variant="outline-primary" onClick={()=>stakeholderstore.addStakeHolder()}>Tilføj</Button>
+                                        </Col>
+
+                                    </Form.Row>
+
+
+                                </td>
+
 
                             </tr>
 
