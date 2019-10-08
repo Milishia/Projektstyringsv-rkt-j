@@ -20,5 +20,5 @@ Make sure the project is recognized as a Maven Project  <br>
     npm start
     
 
-
+The current build of the app can be viewed https://projektstyringsvaerktoej.herokuapp.com/
 
