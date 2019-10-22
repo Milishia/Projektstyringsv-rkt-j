@@ -64,7 +64,10 @@ function App() {
                         </thead>
                         <tbody>
                         {stakeholderstore.stakeholders.map((stakeholderName, key)=>
-                            (<tr> <td> {key+1} </td><td> {stakeholderName} </td> </tr>))}
+                            (<tr>
+                                <td> {key+1} </td>
+                                <td> {stakeholderName} <Button variant="outline-primary" onClick={()=>stakeholderstore.removeStakeholder()}>Fjern</Button></td>
+                            </tr>))}
                             <tr>
                                 <td></td>
                                 <td>
@@ -87,7 +90,7 @@ function App() {
                 </Col>
                 <Col> {/*3 of 3*/}
 
-                    <Button variant="primary">Gå til næste side</Button>
+                    <Button variant="primary" >Gå til næste side</Button>
 
                 </Col>
             </Row>

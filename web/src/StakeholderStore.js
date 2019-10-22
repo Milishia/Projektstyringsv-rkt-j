@@ -1,4 +1,5 @@
 import {decorate, observable} from "mobx";
+import React, {useState} from 'react';
 
 export default class StakeholderStore
 {
@@ -7,7 +8,16 @@ export default class StakeholderStore
     addStakeHolder = (name)=> {
         this.stakeholders.push(name);
         this.newStakeHolder="";
+
     };
+    removeStakeholder(e) {
+
+    }
+    message = (key)=>{
+        alert("this is something"+ key);
+    }
+
+
 }
 
 decorate(StakeholderStore, {
