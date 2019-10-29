@@ -22,8 +22,8 @@ import KeyStakeholderComponent from "./KeyStakeholderComponent";
 function App() {
     return (
         <switch>
-            <Route path ={"/StakeholderComponent"} component={StakeholderComponent}/>
-            <Route path = "/KeyStakeholderComponent" component={KeyStakeholderComponent}/>
+            <Route path = {"/StakeholderComponent"} component={StakeholderComponent}/>
+            <Route path = {"/KeyStakeholderComponent"} component={KeyStakeholderComponent}/>
             <Route exact path = "/" component={Login}/>
         </switch>
     )

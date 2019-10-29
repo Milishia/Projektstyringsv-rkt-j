@@ -39,7 +39,7 @@ const Login = withRouter(({history, match}) => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Button variant="primary" type="submit" onClick={()=>history.push("/stakeholdercomponent")}>
+                            <Button variant="primary" type="submit" onClick={()=>history.push("/StakeholderComponent")}>
                                 Submit
                             </Button>
                         </Form>
