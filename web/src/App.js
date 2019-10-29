@@ -14,6 +14,7 @@ import {observer} from "mobx-react";
 import Route from "react-router-dom/es/Route";
 import StakeholderComponent from "./StakeholderComponent";
 import Login from "./Login";
+import KeyStakeholderComponent from "./KeyStakeholderComponent";
 
 
 
@@ -22,10 +23,10 @@ function App() {
     return (
         <switch>
             <Route path ={"/StakeholderComponent"} component={StakeholderComponent}/>
+            <Route path = "/KeyStakeholderComponent" component={KeyStakeholderComponent}/>
             <Route exact path = "/" component={Login}/>
         </switch>
     )
-
 }
 
 export default observer(App);

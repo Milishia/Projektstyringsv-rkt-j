@@ -8,11 +8,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
 import StakeholderStore from "./StakeholderStore";
+import {withRouter} from "react-router-dom";
 
 const stakeholderstore  = new StakeholderStore();
 
 
-function StakeholderComponent() {
+const StakeholderComponent = withRouter (({history, match}) => {
     return(
     <div className="App">
         <Container>
@@ -103,7 +104,7 @@ function StakeholderComponent() {
                 </Col>
                 <Col> {/*3 of 3*/}
 
-                    <Button variant="primary">Gå til næste side</Button>
+                    <Button variant="primary" onClick={()=>history.push("/keystakeholdercomponent")}>Gå til næste side</Button>
 
                 </Col>
             </Row>
@@ -111,6 +112,6 @@ function StakeholderComponent() {
 
     </div>
     )
-}
+});
 
 export default StakeholderComponent

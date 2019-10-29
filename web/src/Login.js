@@ -7,9 +7,10 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import {withRouter} from "react-router-dom";
 
 
-function Login() {
+const Login = withRouter(({history, match}) => {
     return(
         <div className="login">
             <Container>
@@ -38,7 +39,7 @@ function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" type="submit" onClick={()=>history.push("/stakeholdercomponent")}>
                                 Submit
                             </Button>
                         </Form>
@@ -50,6 +51,6 @@ function Login() {
             </Container>
         </div>
     )
-}
+});
 
 export default Login
