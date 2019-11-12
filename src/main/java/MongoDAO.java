@@ -1,19 +1,23 @@
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MongoDAO implements StakeholderDAO {
     @Override
-    public String getStakeholder()
+    public List<Stakeholder> getStakeholder()
     {
-        StringBuilder returnString = new StringBuilder();
-        MongoCollection<Document> stakeholders = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
+        MongoCollection<Document> stakeholderCollection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
 
-        for (Document document : stakeholders.find()) 
+        List<Stakeholder> Stakeholders = new ArrayList<>();
+
+        for (Document document : stakeholderCollection.find())
         {
-            returnString.append(document.toJson());
-            System.out.println(document);
+            Stakeholder newStakeholder = Stakeholder.builder().name(document.getString("name")).email(document.getString("email")).build();
+            Stakeholders.add(newStakeholder);
         }
-        return returnString.toString();
+        return Stakeholders;
     }
 
     @Override

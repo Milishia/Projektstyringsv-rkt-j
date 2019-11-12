@@ -1,13 +1,17 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 @Path("stakeholder")
 public class StakeholderService {
     private StakeholderDAO DatabaseAccess = new MongoDAO();
 
     @GET
-    public String getStakeholder()
-    {
-        return DatabaseAccess.getStakeholder();
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getStakeholder() throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(DatabaseAccess.getStakeholder());
     }
 
     @PUT

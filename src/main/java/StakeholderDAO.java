@@ -1,6 +1,8 @@
+import java.util.List;
+
 public interface StakeholderDAO
 {
-    String getStakeholder();
+    List<Stakeholder> getStakeholder();
 
     void putStakeholder(String name);
 
