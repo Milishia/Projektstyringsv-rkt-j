@@ -7,13 +7,12 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import StakeholderStore from "./StakeholderStore";
+import {stakeholderStore} from "./StakeholderStore";
 import {withRouter} from "react-router-dom";
+import {observer} from "mobx-react";
 
-const stakeholderstore  = new StakeholderStore();
 
-
-const StakeholderComponent = withRouter (({history, match}) => {
+export const StakeholderComponent = withRouter (observer(({history}) => {
     return(
     <div className="App">
         <Container>
@@ -64,7 +63,7 @@ const StakeholderComponent = withRouter (({history, match}) => {
                         </thead>
                         <tbody>
 
-                        {stakeholderstore.stakeholders.map((stakeholderName, key)=>
+                        {stakeholderStore.stakeholders.map((stakeholderName, key)=>
                             <tr key={key}><td>{key+1}</td><td>{stakeholderName.name}</td><td>{stakeholderName.email}</td></tr>)}
 
 
@@ -74,7 +73,7 @@ const StakeholderComponent = withRouter (({history, match}) => {
                             <td>
                                 <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control value={stakeholderstore.newStakeholderName} size="xs" type="text" placeholder="Indskriv navn" onChange={(e)=>stakeholderstore.newStakeholderName = e.target.value}/>
+                                        <Form.Control value={stakeholderStore.newStakeholderName} size="xs" type="text" placeholder="Indskriv navn" onChange={(e)=>stakeholderStore.newStakeholderName = e.target.value}/>
                                     </Col>
 
                                 </Form.Row>
@@ -83,10 +82,10 @@ const StakeholderComponent = withRouter (({history, match}) => {
                             <td>
                                 <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control value={stakeholderstore.newStakeholderEmail} size="xs" type="text" placeholder="Indskriv E-mail" onChange={(e)=>stakeholderstore.newStakeholderEmail = e.target.value}/>
+                                        <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="Indskriv E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
                                     </Col>
                                     <Col>
-                                        <Button variant="outline-primary" onClick={()=>stakeholderstore.addStakeHolder()}>Tilføj</Button>
+                                        <Button variant="outline-primary" onClick={()=>stakeholderStore.addStakeHolder()}>Tilføj</Button>
                                     </Col>
 
                                 </Form.Row>
@@ -104,7 +103,7 @@ const StakeholderComponent = withRouter (({history, match}) => {
                 </Col>
                 <Col> {/*3 of 3*/}
 
-                    <Button variant="primary" onClick={()=>history.push("/KeyStakeholderComponent")}>Gå til næste side</Button>
+                    <Button variant="primary" onClick={()=>history.push("/keystakeholdercomponent")}>Gå til næste side</Button>
 
                 </Col>
             </Row>
@@ -112,6 +111,6 @@ const StakeholderComponent = withRouter (({history, match}) => {
 
     </div>
     )
-});
+}));
 
-export default StakeholderComponent
+export default observer(StakeholderComponent)

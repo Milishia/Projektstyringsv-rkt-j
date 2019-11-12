@@ -26,12 +26,12 @@ public class MongoDAO implements StakeholderDAO {
     public void postStakeholder(String payload)
     {
         MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
-        Document document = new Document(Document.parse(payload)).append("email" , "AndersEmail@gmail.com");
+        Document document = new Document(Document.parse(payload));
         collection.insertOne(document);
     }
 
     @Override
-    public void deleteStakeholder(String name) {
 
+    public void deleteStakeholder(String name) {
     }
 }

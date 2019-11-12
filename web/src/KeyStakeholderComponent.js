@@ -1,5 +1,6 @@
 import {withRouter} from "react-router-dom";
 import React from "react";
+import {observer} from "mobx-react";
 
 const KeyStakeholderComponent = withRouter(({history, match}) => {
     return(
@@ -10,4 +11,4 @@ const KeyStakeholderComponent = withRouter(({history, match}) => {
     )
 });
 
-export default KeyStakeholderComponent
+export default observer(KeyStakeholderComponent)

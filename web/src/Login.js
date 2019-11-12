@@ -1,13 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Nav, Navbar} from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Table from "react-bootstrap/Table";
+import { Navbar} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
 import {withRouter} from "react-router-dom";
+import {observer} from "mobx-react";
 
 
 const Login = withRouter(({history, match}) => {
@@ -39,7 +38,7 @@ const Login = withRouter(({history, match}) => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Button variant="primary" type="submit" onClick={()=>history.push("/StakeholderComponent")}>
+                            <Button variant="primary" type="submit" onClick={()=>history.push("/stakeholdercomponent")}>
                                 Submit
                             </Button>
                         </Form>
@@ -53,4 +52,4 @@ const Login = withRouter(({history, match}) => {
     )
 });
 
-export default Login
+export default observer(Login)

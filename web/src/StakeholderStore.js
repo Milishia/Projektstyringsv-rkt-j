@@ -1,5 +1,4 @@
 import {decorate, observable} from "mobx";
-import React, {useState} from 'react';
 
 export default class StakeholderStore
 {
@@ -34,3 +33,5 @@ decorate(StakeholderStore, {
     newStakeholderName: observable,
     newStakeholderEmail: observable
 });
+
+export const stakeholderStore = new StakeholderStore();
