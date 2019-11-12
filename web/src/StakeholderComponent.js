@@ -11,7 +11,6 @@ import {stakeholderStore} from "./StakeholderStore";
 import {withRouter} from "react-router-dom";//
 import {observer} from "mobx-react";
 
-
 export const StakeholderComponent = withRouter (observer(({history}) => {
     return(
     <div className="App">
@@ -87,7 +86,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                     <Col>
                                         <Button variant="outline-primary" onClick={()=>{
                                             stakeholderStore.postStakeholder();
-                                            stakeholderStore.addStakeHolder();}}>Tilføj</Button>
+                                        }}>Tilføj</Button>
                                     </Col>
 
                                 </Form.Row>
