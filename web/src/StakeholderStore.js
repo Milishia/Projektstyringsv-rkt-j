@@ -12,7 +12,7 @@ export default class StakeholderStore
         const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("fetching");
-        fetch(localurl)
+        fetch(remoteurl)
             .then((response)=> response.json()
                 .then((jsonresponse)=>{
                     console.log(jsonresponse);
@@ -27,7 +27,7 @@ export default class StakeholderStore
         const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("posting");
-        fetch(localurl, {
+        fetch(remoteurl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
