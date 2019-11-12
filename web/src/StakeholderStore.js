@@ -2,14 +2,17 @@ import {decorate, observable} from "mobx";
 
 export default class StakeholderStore
 {
-    fetchStakeholders()
+    getStakeholders()
     {
+        const localurl = "http://localhost:8080/rest/stakeholder";
+        const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("fetching");
-        fetch('https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder')
+        fetch(remoteurl)
             .then((response)=> response.json()
                 .then((jsonresponse)=>{
-                    this.stakeholders = jsonresponse;
                     console.log(jsonresponse);
+                    this.stakeholders = jsonresponse
+                    return jsonresponse;
                 }
             )
         )
@@ -17,7 +20,10 @@ export default class StakeholderStore
 
     postStakeholder()
     {
-        fetch('https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder', {
+        const localurl = "http://localhost:8080/rest/stakeholder";
+        const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
+        console.log("posting")
+        fetch(remoteurl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -28,14 +34,17 @@ export default class StakeholderStore
                 email: this.newStakeholderEmail,
             })
         })
-            .then(() => console.log("POST successfully"))
+            .then(() => this.getStakeholders())
     }
+
 
     stakeholders = [
         {name: "Daniel" , email: "s175207@student.dtu.dk"},
         {name: "Futte" , email: "s175204@student.dtu.dk"},
         {name: "Milishia" , email: "s175193@student.dtu.dk"},
         {name: "Caroline" , email: "s175201@student.dtu.dk"}];
+
+
 
 
     newStakeholderName = "";
