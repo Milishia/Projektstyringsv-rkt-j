@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
 import {stakeholderStore} from "./StakeholderStore";
-import {withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";//
 import {observer} from "mobx-react";
 
 
@@ -85,7 +85,9 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                         <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="Indskriv E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
                                     </Col>
                                     <Col>
-                                        <Button variant="outline-primary" onClick={()=>stakeholderStore.addStakeHolder()}>Tilføj</Button>
+                                        <Button variant="outline-primary" onClick={()=>{
+                                            stakeholderStore.fetchStakeholders();
+                                            stakeholderStore.addStakeHolder();}}>Tilføj</Button>
                                     </Col>
 
                                 </Form.Row>
