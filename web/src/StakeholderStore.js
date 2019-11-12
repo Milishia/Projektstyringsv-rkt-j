@@ -2,17 +2,21 @@ import {decorate, observable} from "mobx";
 
 export default class StakeholderStore
 {
+    constructor()
+    {
+        this.getStakeholders();
+    }
+
     getStakeholders()
     {
         const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("fetching");
-        fetch(remoteurl)
+        fetch(localurl)
             .then((response)=> response.json()
                 .then((jsonresponse)=>{
                     console.log(jsonresponse);
-                    this.stakeholders = jsonresponse
-                    return jsonresponse;
+                    this.stakeholders = jsonresponse;
                 }
             )
         )
@@ -22,8 +26,8 @@ export default class StakeholderStore
     {
         const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
-        console.log("posting")
-        fetch(remoteurl, {
+        console.log("posting");
+        fetch(localurl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -37,12 +41,16 @@ export default class StakeholderStore
             .then(() => this.getStakeholders())
     }
 
-
+    /*
     stakeholders = [
         {name: "Daniel" , email: "s175207@student.dtu.dk"},
         {name: "Futte" , email: "s175204@student.dtu.dk"},
         {name: "Milishia" , email: "s175193@student.dtu.dk"},
         {name: "Caroline" , email: "s175201@student.dtu.dk"}];
+
+     */
+
+    stakeholders = [];
 
 
 
@@ -51,8 +59,7 @@ export default class StakeholderStore
     newStakeholderEmail = "";
     addStakeHolder = ()=> {
 
-        const newStakeholderTemp = {name: this.newStakeholderName, email: this.newStakeholderEmail};
-        this.stakeholders.push(newStakeholderTemp);
+        this.postStakeholder();
         this.newStakeholderName="";
         this.newStakeholderEmail="";
     };
