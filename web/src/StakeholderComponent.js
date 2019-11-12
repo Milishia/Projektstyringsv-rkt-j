@@ -86,7 +86,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                     </Col>
                                     <Col>
                                         <Button variant="outline-primary" onClick={()=>{
-                                            stakeholderStore.fetchStakeholders();
+                                            stakeholderStore.postStakeholder();
                                             stakeholderStore.addStakeHolder();}}>Tilføj</Button>
                                     </Col>
 

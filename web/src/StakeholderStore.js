@@ -7,10 +7,28 @@ export default class StakeholderStore
         console.log("fetching");
         fetch('https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder')
             .then((response)=> response.json()
-                .then((jsonresponse)=> this.stakeholders = jsonresponse
-                    .then(console.log(this.stakeholders))
+                .then((jsonresponse)=>{
+                    this.stakeholders = jsonresponse;
+                    console.log(jsonresponse);
+                }
             )
         )
+    }
+
+    postStakeholder()
+    {
+        fetch('https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: this.newStakeholderName,
+                email: this.newStakeholderEmail,
+            })
+        })
+            .then(() => console.log("POST successfully"))
     }
 
     stakeholders = [
