@@ -7,6 +7,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+        System.out.println(System.getenv("MONGO_STAKEHOLDER_USERNAME"));
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
         String port = System.getenv("PORT"); //Til Heroku
