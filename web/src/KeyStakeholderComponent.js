@@ -27,7 +27,7 @@ const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
                     <Col> {/*1 of 3*/}
                         <Nav>
                             <Nav.Item>
-                                <Nav.Link >Identificer Stakeholders</Nav.Link>
+                                <Nav.Link onClick={()=>history.push("/stakeholdercomponent")}>Identificer Stakeholders</Nav.Link>
                                 <Nav.Link >Identificer Key Stakeholders</Nav.Link>
                                 <Nav.Link >Project Scope Statement</Nav.Link>
                                 <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
