@@ -45,7 +45,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                 <Col xs={6}> {/*2 of 3*/}
                     <Card style={{ width: '33.6rem' }}>
                         <Card.Body>
-                            <Card.Title>Identificer Stakeholder</Card.Title>
+                            <Card.Title>Identificer Stakeholders</Card.Title>
                             <Card.Text>
                                 I dette afsnit skal du identificere dine Stakeholders. En Stakeholder kan være en person eller organisation, der vil blive påvirket af projektet, enten negativt eller positivt.
                             </Card.Text>
@@ -54,16 +54,27 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
 
                     <Table striped bordered hover>
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Navn på Stakeholder</th>
-                            <th>E-mail på Stakeholder</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Navn på Stakeholder</th>
+                                <th>E-mail på Stakeholder</th>
+                                <th> </th>
+                            </tr>
                         </thead>
                         <tbody>
 
+
                         {stakeholderStore.stakeholders.map((stakeholderName, key)=>
-                            <tr key={key}><td>{key+1}</td><td>{stakeholderName.name}</td><td>{stakeholderName.email}</td></tr>)}
+
+                            <tr key={key}>
+                                <td>{key+1}</td>
+                                <td>{stakeholderName.name}</td>
+                                <td>{stakeholderName.email}</td>
+                                <td>
+                                    <Button style={{position:'relative' , zIndex:'10000000'}} variant="outline-primary" onClick={()=>{stakeholderStore.deleteStakeholder(key)}}> x </Button>
+                                </td>
+                            </tr>
+                        )}
 
 
 
@@ -72,7 +83,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             <td>
                                 <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control value={stakeholderStore.newStakeholderName} size="xs" type="text" placeholder="Indskriv navn" onChange={(e)=>stakeholderStore.newStakeholderName = e.target.value}/>
+                                        <Form.Control value={stakeholderStore.newStakeholderName} size="xs" type="text" placeholder="Navn" onChange={(e)=>stakeholderStore.newStakeholderName = e.target.value}/>
                                     </Col>
 
                                 </Form.Row>
@@ -81,7 +92,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             <td>
                                 <Form.Row>
                                     <Col sm={"9"}>
-                                        <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="Indskriv E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
+                                        <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
                                     </Col>
                                     <Col>
                                         <Button variant="outline-primary" onClick={()=>{

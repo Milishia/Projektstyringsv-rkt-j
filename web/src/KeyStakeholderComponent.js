@@ -13,7 +13,7 @@ import {observer} from "mobx-react";
 import InputGroup from "react-bootstrap/InputGroup"
 
 
-const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
+const KeyStakeholderComponent = withRouter(observer(({history}) => {
     return(
         <div>
             <Container>
@@ -43,7 +43,7 @@ const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
                     <Col xs={6}> {/*2 of 3*/}
                         <Card style={{ width: '33.6rem' }}>
                             <Card.Body>
-                                <Card.Title>Identificer Stakeholder</Card.Title>
+                                <Card.Title>Identificer Key stakeholders</Card.Title>
                                 <Card.Text>
                                     I dette afsnit skal du identificere dine Keystakeholders ud fra D.A.N.C.E metoden.
                                     Hvad er D.A.N.C.E? <br /><br />
@@ -129,6 +129,7 @@ const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
 
                     </Col>
                     <Col>
+                        <Button variant="primary">Gå til næste side</Button>
                     </Col>
                 </Row>
             </Container>

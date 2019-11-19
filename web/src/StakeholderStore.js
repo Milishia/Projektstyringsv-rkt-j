@@ -22,6 +22,11 @@ export default class StakeholderStore
         )
     }
 
+    deleteStakeholder(key) {
+        console.log("You tried to delete element number " + key)
+        //TODO Delete stakeholder with key.
+
+    }
     postStakeholder()
     {
         const localurl = "http://localhost:8080/rest/stakeholder";
@@ -63,15 +68,14 @@ export default class StakeholderStore
         this.newStakeholderName="";
         this.newStakeholderEmail="";
     };
-    removeStakeholder(e) {
 
-    }
     message = (key)=>{
         alert("this is something"+ key);
     }
 
 
 }
+
 
 decorate(StakeholderStore, {
     stakeholders: observable,
