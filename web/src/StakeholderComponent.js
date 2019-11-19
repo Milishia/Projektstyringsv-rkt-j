@@ -48,7 +48,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                         <Card.Body>
                             <Card.Title>Identificer Stakeholder</Card.Title>
                             <Card.Text>
-                                I dette afsnit skal du identificere dine Stakeholders. En Stakeholder kan være en person eller organisation, der bliver vil blive påvirket af projektet, enten negativt eller positivt.
+                                I dette afsnit skal du identificere dine Stakeholders. En Stakeholder kan være en person eller organisation, der vil blive påvirket af projektet, enten negativt eller positivt.
                             </Card.Text>
                         </Card.Body>
                     </Card>

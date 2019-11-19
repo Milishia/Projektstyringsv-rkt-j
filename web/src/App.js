@@ -8,9 +8,6 @@ import Login from "./Login";
 import KeyStakeholderComponent from "./KeyStakeholderComponent";
 import { Switch } from "react-router-dom";
 
-
-
-
 function App() {
     return (
         <Switch>
