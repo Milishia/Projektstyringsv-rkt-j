@@ -29,8 +29,21 @@ export default class StakeholderStore
             .then(()=> {
                     console.log("deleted stakeholder with name and email " + stakeholdername + "  and " + stakeholderemail);
                 }
-            )
+            );
+        let x = this.findIndexInStakeholdersArray(stakeholdername , stakeholderemail);
+            this.stakeholders.splice(x, 1);
 
+    }
+
+    findIndexInStakeholdersArray(name , email)
+    {
+        for(let i = 0; this.stakeholders.length;i++)
+            {
+                if(this.stakeholders[i].name === name && this.stakeholders[i].email === email)
+                {
+                    return i;
+                }
+            }
     }
     postStakeholder()
     {
