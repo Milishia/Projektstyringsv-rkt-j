@@ -29,9 +29,9 @@ public class StakeholderService {
 
 
     @DELETE
-    @Path("{stakeholderName}")
-    public void deleteStakeholder(@PathParam("stakeholderName") String stakeholderName)
+    @Path("{stakeholderName}/{stakeholderEmail}")
+    public void deleteStakeholder(@PathParam("stakeholderName") String stakeholderName , @PathParam("stakeholderEmail") String stakeholderEmail)
     {
-        DatabaseAccess.deleteStakeholder(stakeholderName);
+        DatabaseAccess.deleteStakeholder(stakeholderName , stakeholderEmail);
     }
 }
