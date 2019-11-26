@@ -9,10 +9,10 @@ export default class StakeholderStore
 
     getStakeholders()
     {
-        const localurl = "http://localhost:8080/rest/stakeholder";
+       // const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("fetching");
-        fetch(localurl)
+        fetch(remoteurl)
             .then((response)=> response.json()
                 .then((jsonresponse)=>{
                     console.log(jsonresponse);
@@ -22,17 +22,25 @@ export default class StakeholderStore
         )
     }
 
-    deleteStakeholder(key) {
-        console.log("You tried to delete element number " + key)
-        //TODO Delete stakeholder with key.
+    deleteStakeholder(stakeholdername , stakeholderemail) {
+        const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder/" + stakeholdername + "/" + stakeholderemail;
+        console.log("fetching");
+        fetch(remoteurl , {method: 'POST'})
+            .then((response)=> response.json()
+                .then((jsonresponse)=>{
+                        console.log(jsonresponse);
+                        console.log("deleted stakeholder with name and email " + stakeholdername + "  and " + stakeholderemail)
+                    }
+                )
+            )
 
     }
     postStakeholder()
     {
-        const localurl = "http://localhost:8080/rest/stakeholder";
+        //const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("posting");
-        fetch(localurl, {
+        fetch(remoteurl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -64,14 +64,14 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                         <tbody>
 
 
-                        {stakeholderStore.stakeholders.map((stakeholderName, key)=>
+                        {stakeholderStore.stakeholders.map((stakeholder, key)=>
 
                             <tr key={key}>
                                 <td>{key+1}</td>
-                                <td>{stakeholderName.name}</td>
-                                <td>{stakeholderName.email}</td>
+                                <td>{stakeholder.name}</td>
+                                <td>{stakeholder.email}</td>
                                 <td>
-                                    <Button style={{position:'relative' , zIndex:'10000000'}} variant="outline-primary" onClick={()=>{stakeholderStore.deleteStakeholder(key)}}> x </Button>
+                                    <Button style={{position:'relative' , zIndex:'10000000'}} variant="outline-primary" onClick={()=>{stakeholderStore.deleteStakeholder(stakeholder.name , stakeholder.email)}}> x </Button>
                                 </td>
                             </tr>
                         )}
