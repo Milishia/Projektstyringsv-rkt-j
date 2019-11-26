@@ -94,15 +94,16 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                     <Col sm={"9"}>
                                         <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
                                     </Col>
-                                    <Col>
-                                        <Button variant="outline-primary" onClick={()=>{
-                                            stakeholderStore.addStakeHolder();
-                                        }}>Tilføj</Button>
-                                    </Col>
+
 
                                 </Form.Row>
 
 
+                            </td>
+                            <td>
+                                <Button variant="outline-primary" onClick={()=>{
+                                    stakeholderStore.addStakeHolder();
+                                }}>Tilføj</Button>
                             </td>
 
 
