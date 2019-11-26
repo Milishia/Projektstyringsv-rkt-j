@@ -26,12 +26,9 @@ export default class StakeholderStore
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder/" + stakeholdername + "/" + stakeholderemail;
         console.log("fetching");
         fetch(remoteurl , {method: 'DELETE'})
-            .then((response)=> response.json()
-                .then((jsonresponse)=>{
-                        console.log(jsonresponse);
-                        console.log("deleted stakeholder with name and email " + stakeholdername + "  and " + stakeholderemail)
-                    }
-                )
+            .then(()=> {
+                    console.log("deleted stakeholder with name and email " + stakeholdername + "  and " + stakeholderemail);
+                }
             )
 
     }
