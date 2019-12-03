@@ -13,37 +13,35 @@ import {observer} from "mobx-react";
 
 export const StakeholderComponent = withRouter (observer(({history}) => {
     return(
-    <div className="App">
+    <div>
         <Container>
             <Row>
 
                 <Col>{/*1 of 1*/}
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link>Identificer Stakeholders</Nav.Link>
+                            <Nav.Link onClick={()=>history.push("/keystakeholdercomponent")}>Identificer Key Stakeholders</Nav.Link>
+                        </Nav>
+                            <Nav>
+                                <Button>Log ud</Button>
+                            </Nav>
+                        </Navbar.Collapse>
                     </Navbar>
                 </Col>
 
             </Row>
+
             <Row>
                 <Col> {/*1 of 3*/}
 
-                    <Nav>
-                        <Nav.Item>
-                            <Nav.Link >Identificer Stakeholders</Nav.Link>
-                            <Nav.Link onClick={()=>history.push("/keystakeholdercomponent")}>Identificer Key Stakeholders</Nav.Link>
-                            <Nav.Link >Project Scope Statement</Nav.Link>
-                            <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
-                            <Nav.Link >Identificer risici</Nav.Link>
-                            <Nav.Link >Vurder risici</Nav.Link>
-                            <Nav.Link >Imødekom risici</Nav.Link>
-                            <Nav.Link >Closing Checklist</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-
                 </Col>
-                <Col xs={6}> {/*2 of 3*/}
-                    <Card style={{ width: '33.6rem' }}>
+                <Col sm="auto"> {/*2 of 3*/}
+                    <Container>
+                    <Card style={{ width: '38.6rem' }}>
                         <Card.Body>
                             <Card.Title>Identificer Stakeholders</Card.Title>
                             <Card.Text>
@@ -117,7 +115,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                         </tbody>
 
                     </Table>
-
+                </Container>
                 </Col>
                 <Col> {/*3 of 3*/}
 

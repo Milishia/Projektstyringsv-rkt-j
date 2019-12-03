@@ -21,26 +21,24 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                     <Col>{/*1 of 1*/}
                         <Navbar bg="light" expand="lg">
                             <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                            <Navbar.Collapse id="responsive-navbar-nav">
+                                <Nav className="mr-auto">
+                                    <Nav.Link onClick={()=>history.push("/stakeholdercomponent")}>Identificer Stakeholders</Nav.Link>
+                                    <Nav.Link >Identificer Key Stakeholders</Nav.Link>
+                                </Nav>
+                                <Nav className="mr-sm-2">
+                                    <Button>Log ud</Button>
+                                </Nav>
+                            </Navbar.Collapse>
                         </Navbar>
                     </Col>
                 </Row>
                 <Row>
                     <Col> {/*1 of 3*/}
-                        <Nav>
-                            <Nav.Item>
-                                <Nav.Link onClick={()=>history.push("/stakeholdercomponent")}>Identificer Stakeholders</Nav.Link>
-                                <Nav.Link >Identificer Key Stakeholders</Nav.Link>
-                                <Nav.Link >Project Scope Statement</Nav.Link>
-                                <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
-                                <Nav.Link >Identificer risici</Nav.Link>
-                                <Nav.Link >Vurder risici</Nav.Link>
-                                <Nav.Link >Imødekom risici</Nav.Link>
-                                <Nav.Link >Closing Checklist</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
+
                     </Col>
-                    <Col xs={6}> {/*2 of 3*/}
+                    <Col sm="auto"> {/*2 of 3*/}
                         <Card style={{ width: '33.6rem' }}>
                             <Card.Body>
                                 <Card.Title>Identificer Key stakeholders</Card.Title>
