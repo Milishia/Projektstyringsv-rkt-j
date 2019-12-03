@@ -102,6 +102,8 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             </td>
                             <td>
                                 <Button variant="outline-primary" onClick={()=>{
+                                    console.log(stakeholderStore.newStakeholderEmail)
+                                    console.log(stakeholderStore.newStakeholderName)
                                     if(stakeholderStore.addStakeHolder() === "error")
                                     {
                                         window.alert("Name and Email can't be empty");
