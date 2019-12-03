@@ -102,7 +102,10 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             </td>
                             <td>
                                 <Button variant="outline-primary" onClick={()=>{
-                                    stakeholderStore.addStakeHolder();
+                                    if(stakeholderStore.addStakeHolder() === "error")
+                                    {
+                                        window.alert("Name and Email can't be empty");
+                                    }
                                 }}>Tilføj</Button>
                             </td>
 

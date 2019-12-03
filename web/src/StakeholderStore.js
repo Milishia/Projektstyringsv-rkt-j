@@ -81,10 +81,17 @@ export default class StakeholderStore
     newStakeholderName = "";
     newStakeholderEmail = "";
     addStakeHolder = ()=> {
+        if(this.newStakeholderName !== "" && this.newStakeholderEmail !== "")
+        {
+            this.postStakeholder();
+            this.newStakeholderName="";
+            this.newStakeholderEmail="";
+        }
+        else
+        {
+            return "error";
+        }
 
-        this.postStakeholder();
-        this.newStakeholderName="";
-        this.newStakeholderEmail="";
     };
 
     message = (key)=>{
