@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {observer} from "mobx-react";
-
+import "./index";
 
 const Login = withRouter(({history, match}) => {
     return(
@@ -17,7 +17,14 @@ const Login = withRouter(({history, match}) => {
 
                     <Col>
                         <Navbar bg="light" expand="lg">
-                            <Navbar.Brand >Login</Navbar.Brand>
+                            <img
+                                alt="/web/public/dragon.png"
+                                src="dragon.png"
+                                width="40"
+                                height="40"
+                                className="d-inline-block align-top"
+                            />
+                            <Navbar.Brand>Dragon Planner - Login</Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         </Navbar>
                     </Col>
@@ -41,6 +48,7 @@ const Login = withRouter(({history, match}) => {
                             <Button variant="primary" type="submit" onClick={()=>history.push("/stakeholdercomponent")}>
                                 Submit
                             </Button>
+                            <Button onClick={()=>{window.deferredPrompt.prompt();}}>Installér som Native App</Button>
                         </Form>
                     </Col>
                     <Col>{/*3 of 3*/}
