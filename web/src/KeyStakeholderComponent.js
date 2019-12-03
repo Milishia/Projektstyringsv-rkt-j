@@ -20,7 +20,14 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                 <Row>
                     <Col>{/*1 of 1*/}
                         <Navbar bg="light" expand="lg">
-                            <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
+                            <img
+                                alt="/web/public/dragon.png"
+                                src="dragon.png"
+                                width="40"
+                                height="40"
+                                className="d-inline-block align-top"
+                            />
+                            <Navbar.Brand >Dragon Planner</Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="mr-auto">
@@ -28,7 +35,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                                     <Nav.Link >Identificer Key Stakeholders</Nav.Link>
                                 </Nav>
                                 <Nav className="mr-sm-2">
-                                    <Button>Log ud</Button>
+                                    <Button variant="light">Log ud</Button>
                                 </Nav>
                             </Navbar.Collapse>
                         </Navbar>
@@ -65,7 +72,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                         <Table striped bordered hover>
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <td>#</td>
                                 <th>Navn på Stakeholder</th>
                                 <th>D</th>
                                 <th>A</th>
@@ -75,9 +82,6 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
 
                             </tr>
                             </thead>
-
-
-
                             <tr>
 
                                     {stakeholderStore.stakeholders.map((stakeholderName, key)=>
@@ -127,7 +131,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
 
                     </Col>
                     <Col>
-                        <Button variant="primary">Gå til næste side</Button>
+                        <Button variant="info">Færdig</Button>
                     </Col>
                 </Row>
             </Container>
