@@ -1,8 +1,12 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.ws.rs.NotAuthorizedException;
 import java.security.Key;
 import java.util.Calendar;
 
@@ -39,5 +43,24 @@ public class JWTHandler
             }
         }
         return key;
+    }
+
+    static User validate(String authentication)
+    {
+        String[] tokenArray = authentication.split(" ");
+        String token = tokenArray[tokenArray.length - 1];
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(getKey())
+                    .parseClaimsJws(token)
+                    .getBody();
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.convertValue(claims.get("user"), User.class);
+        }
+        catch (JwtException JwtException)
+        {
+            System.out.println(JwtException.getClass() + ":  " + JwtException.getMessage());
+            throw new NotAuthorizedException(JwtException.getMessage());
+        }
     }
 }

@@ -10,15 +10,19 @@ public class LoginService {
 
     @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException{
+        System.out.println(login.getUsername());
+        System.out.println(login.getPassword());
         if (login!=null &&"brian".equals(login.getUsername()) && "kodeord".equals(login.getPassword())){
             return JWTHandler.generateJWT(new User(login.getUsername(), ""));
         }
         throw new NotAuthorizedException("forkert brugernavn/kodeord");
     }
 
-    @GET
-    public String testPath()
-    {
-        return "Test";
+    @POST
+    @Path("validateToken")
+    public User postToken(String token){
+        System.out.println("Validating ...");
+        User validate = JWTHandler.validate(token);
+        return validate;
     }
 }
