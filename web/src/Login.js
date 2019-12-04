@@ -7,9 +7,10 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {observer} from "mobx-react";
+import {loginStore} from "./LoginStore";
 import "./index";
 
-const Login = withRouter(({history, match}) => {
+export const Login = withRouter(observer(({history, match}) => {
     return(
         <div className="login">
             <Container>
@@ -38,14 +39,23 @@ const Login = withRouter(({history, match}) => {
                         <Form>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control type="email" placeholder="Enter email" value={loginStore.loginUsername} onChange={(e)=>{
+                                    loginStore.loginUsername = e.target.value
+                                    console.log(loginStore.loginUsername)}} />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control type="password" placeholder="Password" value={loginStore.loginPassword} onChange={(e)=>{
+                                    loginStore.loginPassword = e.target.value
+                                    console.log(loginStore.loginPassword)
+                                }}/>
                             </Form.Group>
-                            <Button variant="primary" type="submit" onClick={()=>history.push("/stakeholdercomponent")}>
+                            <Button variant="primary" type="submit" onClick={()=>{
+                                loginStore.getToken();
+                                history.push("/stakeholdercomponent")
+
+                            }}>
                                 Submit
                             </Button>
                             <Button onClick={()=>{window.deferredPrompt.prompt();}}>Installér som Native App</Button>
@@ -58,6 +68,6 @@ const Login = withRouter(({history, match}) => {
             </Container>
         </div>
     )
-});
+}));
 
 export default observer(Login)
