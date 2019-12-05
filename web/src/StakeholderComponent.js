@@ -86,7 +86,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                 <td> </td>
                                 <td>
                                     <Form.Row>
-                                        <Col xs={"9"}>
+                                        <Col>
                                             <Form.Control value={stakeholderStore.newStakeholderName} size="xs" type="text" placeholder="Navn" onChange={(e)=>stakeholderStore.newStakeholderName = e.target.value}/>
                                         </Col>
                                     </Form.Row>
@@ -94,7 +94,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                 </td>
                                 <td>
                                     <Form.Row>
-                                        <Col xs={"9"}>
+                                        <Col>
                                             <Form.Control value={stakeholderStore.newStakeholderEmail} size="xs" type="text" placeholder="E-mail" onChange={(e)=>stakeholderStore.newStakeholderEmail = e.target.value}/>
                                         </Col>
 
