@@ -8,8 +8,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
 import {stakeholderStore} from "./StakeholderStore";
+import {loginStore} from "./LoginStore"
 import {withRouter} from "react-router-dom";//
 import {observer} from "mobx-react";
+import {Loginstates} from "./LoginStore";
 
 export const StakeholderComponent = withRouter (observer(({history}) => {
     return(
@@ -34,7 +36,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             <Nav.Link onClick={()=>history.push("/keystakeholdercomponent")}>Identificer Key Stakeholders</Nav.Link>
                         </Nav>
                             <Nav>
-                                <Button variant="light">Log ud</Button>
+                                <Button variant="light"  onClick={()=>{loginStore.Logud()}}>Log ud</Button>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

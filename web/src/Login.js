@@ -7,11 +7,15 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {observer} from "mobx-react";
-import {loginStore} from "./LoginStore";
+import {Loginstates, loginStore} from "./LoginStore";
 import "./index";
 
-export const Login = withRouter(observer(({history, match}) => {
+
+export const Login = withRouter(observer(({history}) => {
+
+
     return(
+
         <div className="login">
             <Container>
                 <Row>
@@ -39,22 +43,19 @@ export const Login = withRouter(observer(({history, match}) => {
                         <Form>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" value={loginStore.loginUsername} onChange={(e)=>{
-                                    loginStore.loginUsername = e.target.value
-                                    console.log(loginStore.loginUsername)}} />
+                                <Form.Control type="email" placeholder="Enter email" isInvalid = {loginStore.triedToLogin} value={loginStore.loginUsername} onChange={(e)=>{
+                                    loginStore.loginUsername = e.target.value;}} />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={loginStore.loginPassword} onChange={(e)=>{
-                                    loginStore.loginPassword = e.target.value
-                                    console.log(loginStore.loginPassword)
+                                <Form.Control type="password" placeholder="Password" isInvalid={loginStore.triedToLogin} value={loginStore.loginPassword} onChange={(e)=>{
+                                    loginStore.loginPassword = e.target.value;
                                 }}/>
                             </Form.Group>
                             <Button variant="primary" type="submit" onClick={()=>{
-                                loginStore.getToken();
-                                history.push("/stakeholdercomponent")
-
+                                loginStore.Login();
+                                console.log("Performing login sequence");
                             }}>
                                 Submit
                             </Button>
@@ -69,5 +70,7 @@ export const Login = withRouter(observer(({history, match}) => {
         </div>
     )
 }));
+
+
 
 export default observer(Login)
