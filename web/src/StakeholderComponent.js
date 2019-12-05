@@ -19,7 +19,14 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
 
                 <Col>{/*1 of 1*/}
                     <Navbar bg="light" expand="lg">
-                        <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
+                        <img
+                            alt="/web/public/dragon.png"
+                            src="dragon.png"
+                            width="40"
+                            height="40"
+                            className="d-inline-block align-top"
+                        />
+                        <Navbar.Brand>Dragon Planner</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
@@ -27,7 +34,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             <Nav.Link onClick={()=>history.push("/keystakeholdercomponent")}>Identificer Key Stakeholders</Nav.Link>
                         </Nav>
                             <Nav>
-                                <Button>Log ud</Button>
+                                <Button variant="light">Log ud</Button>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -69,7 +76,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                                 <td>{stakeholder.name}</td>
                                 <td>{stakeholder.email}</td>
                                 <td>
-                                    <Button style={{position:'relative' , zIndex:'10000000'}} variant="outline-primary" onClick={()=>{stakeholderStore.deleteStakeholder(stakeholder.name , stakeholder.email)}}> x </Button>
+                                    <Button style={{position:'relative' , zIndex:'10000000'}} variant="outline-danger" onClick={()=>{stakeholderStore.deleteStakeholder(stakeholder.name , stakeholder.email)}}> x </Button>
                                 </td>
                             </tr>
                         )}
@@ -99,7 +106,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
 
                             </td>
                             <td>
-                                <Button variant="outline-primary" onClick={()=>{
+                                <Button variant="outline-success" onClick={()=>{
                                     console.log(stakeholderStore.newStakeholderEmail)
                                     console.log(stakeholderStore.newStakeholderName)
                                     if(stakeholderStore.addStakeHolder() === "error")
@@ -119,7 +126,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                 </Col>
                 <Col> {/*3 of 3*/}
 
-                    <Button variant="primary" onClick={()=>history.push("/keystakeholdercomponent")}>Gå til næste side</Button>
+                    <Button variant="info" onClick={()=>history.push("/keystakeholdercomponent")}>Gå til næste side</Button>
 
                 </Col>
             </Row>
