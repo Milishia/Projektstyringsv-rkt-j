@@ -71,62 +71,58 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                             </Card>
                             <Table striped bordered hover>
                                 <thead>
-                                <tr>
-                                    <td>#</td>
-                                    <th>Navn på Stakeholder</th>
-                                    <th>D</th>
-                                    <th>A</th>
-                                    <th>N</th>
-                                    <th>C</th>
-                                    <th>E</th>
-
-                                </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Navn på Stakeholder</th>
+                                        <th>D</th>
+                                        <th>A</th>
+                                        <th>N</th>
+                                        <th>C</th>
+                                        <th>E</th>
+                                    </tr>
                                 </thead>
-                                <tr>
-
-                                        {stakeholderStore.stakeholders.map((stakeholderName, key)=>
-                                            <tr key={key}><td>{key+1}</td></tr>)}
-
-                                    <th>
-                                        {/*  {stakeholderStore.stakeholders.map((stakeholderName, key)=>
-                                            <tr><td>{stakeholderName.name}</td></tr>)}*/}
-                                    </th>
-                                    <th>
-                                        <label>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            </InputGroup.Prepend>
-                                        </label>
-                                    </th>
-                                    <th>
-                                        <label>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            </InputGroup.Prepend>
-                                        </label>
-                                    </th>
-                                    <th>
-                                        <label>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            </InputGroup.Prepend>
-                                        </label>
-                                    </th>
-                                    <th>
-                                        <label>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            </InputGroup.Prepend>
-                                        </label>
-                                    </th>
-                                    <th>
-                                        <label>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            </InputGroup.Prepend>
-                                        </label>
-                                    </th>
-                                </tr>
+                                <tbody>
+                                            {stakeholderStore.stakeholders.map((stakeholderName, key)=>
+                                                <tr key={key}>
+                                                    <td>{key+1}</td>
+                                                    <td>{stakeholderName.name}</td>
+                                                    <td>
+                                                        <label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                            </InputGroup.Prepend>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                            </InputGroup.Prepend>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                            </InputGroup.Prepend>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                            </InputGroup.Prepend>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                                            </InputGroup.Prepend>
+                                                        </label>
+                                                    </td>
+                                                </tr>)}
+                                </tbody>
                             </Table>
                     </Col>
                     <Col>
