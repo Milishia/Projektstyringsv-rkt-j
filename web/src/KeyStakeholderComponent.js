@@ -10,47 +10,69 @@ import React from "react";
 import {stakeholderStore} from "./StakeholderStore";
 import {withRouter} from "react-router-dom";
 import {observer} from "mobx-react";
+import InputGroup from "react-bootstrap/InputGroup"
 
-const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
+
+const KeyStakeholderComponent = withRouter(observer(({history}) => {
     return(
         <div>
             <Container>
                 <Row>
                     <Col>{/*1 of 1*/}
                         <Navbar bg="light" expand="lg">
-                            <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <img
+                                alt="/web/public/dragon.png"
+                                src="dragon.png"
+                                width="40"
+                                height="40"
+                                className="d-inline-block align-top"
+                            />
+                            <Navbar.Brand >Dragon Planner</Navbar.Brand>
+                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                            <Navbar.Collapse id="responsive-navbar-nav">
+                                <Nav className="mr-auto">
+                                    <Nav.Link onClick={()=>history.push("/stakeholdercomponent")}>Identificer Stakeholders</Nav.Link>
+                                    <Nav.Link >Identificer Key Stakeholders</Nav.Link>
+                                </Nav>
+                                <Nav className="mr-sm-2">
+                                    <Button variant="light">Log ud</Button>
+                                </Nav>
+                            </Navbar.Collapse>
                         </Navbar>
                     </Col>
                 </Row>
                 <Row>
                     <Col> {/*1 of 3*/}
-                        <Nav>
-                            <Nav.Item>
-                                <Nav.Link >Identificer Stakeholders</Nav.Link>
-                                <Nav.Link >Identificer Key Stakeholders</Nav.Link>
-                                <Nav.Link >Project Scope Statement</Nav.Link>
-                                <Nav.Link >Identificer arbejdsopgaver</Nav.Link>
-                                <Nav.Link >Identificer risici</Nav.Link>
-                                <Nav.Link >Vurder risici</Nav.Link>
-                                <Nav.Link >Imødekom risici</Nav.Link>
-                                <Nav.Link >Closing Checklist</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
+
                     </Col>
-                    <Col xs={6}> {/*2 of 3*/}
+                    <Col xs="6"> {/*2 of 3*/}
                         <Card style={{ width: '33.6rem' }}>
                             <Card.Body>
-                                <Card.Title>Identificer Stakeholder</Card.Title>
+                                <Card.Title>Identificer Key stakeholders</Card.Title>
                                 <Card.Text>
                                     I dette afsnit skal du identificere dine Keystakeholders ud fra D.A.N.C.E metoden.
+                                    Hvad er D.A.N.C.E? <br /><br />
+                                    <b>DECISIONS:</b> <br />
+                                    Tager beslutninger der kan har indflydelse på projektets budget.<br /><br />
+
+                                    <b>AUTHORITY:</b> <br />
+                                    Have the authority to grant permission to proceed with the project.<br /><br />
+
+                                    <b>NEED:</b> <br />
+                                    Directly benefit from or are impacted by the project and consequently need to know all about it.<br /><br />
+
+                                    <b>CONNECTIONS:</b> <br />
+                                    Are connected to the people, money, or resources required to remove roadblocks or exert influence to ensure project success. These are the champions, the active supporters who will ensure your project's success.<br /><br />
+
+                                    <b>ENERGY:</b> <br />
+                                    Have positive or negative energy that could affect project success
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                         <Table striped bordered hover>
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <td>#</td>
                                 <th>Navn på Stakeholder</th>
                                 <th>D</th>
                                 <th>A</th>
@@ -60,9 +82,56 @@ const KeyStakeholderComponent = withRouter(observer(({history, match}) => {
 
                             </tr>
                             </thead>
+                            <tr>
+
+                                    {stakeholderStore.stakeholders.map((stakeholderName, key)=>
+                                        <tr key={key}><td>{key+1}</td></tr>)}
+
+                                <th>
+                                    {/*  {stakeholderStore.stakeholders.map((stakeholderName, key)=>
+                                        <tr><td>{stakeholderName.name}</td></tr>)}*/}
+                                </th>
+                                <th>
+                                    <label>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                        </InputGroup.Prepend>
+                                    </label>
+                                </th>
+                                <th>
+                                    <label>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                        </InputGroup.Prepend>
+                                    </label>
+                                </th>
+                                <th>
+                                    <label>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                        </InputGroup.Prepend>
+                                    </label>
+                                </th>
+                                <th>
+                                    <label>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                        </InputGroup.Prepend>
+                                    </label>
+                                </th>
+                                <th>
+                                    <label>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                        </InputGroup.Prepend>
+                                    </label>
+                                </th>
+                            </tr>
                         </Table>
+
                     </Col>
                     <Col>
+                        <Button variant="info">Færdig</Button>
                     </Col>
                 </Row>
             </Container>

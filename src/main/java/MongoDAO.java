@@ -1,5 +1,7 @@
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,10 @@ public class MongoDAO implements StakeholderDAO {
 
     @Override
 
-    public void deleteStakeholder(String name) {
+    public void deleteStakeholder(String name, String email)
+    {
+        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
+        Bson filter = Filters.and(Filters.eq("name" , name) , Filters.eq("email" , email));
+        collection.deleteOne(filter);
     }
 }

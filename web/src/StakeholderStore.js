@@ -9,7 +9,7 @@ export default class StakeholderStore
 
     getStakeholders()
     {
-        const localurl = "http://localhost:8080/rest/stakeholder";
+       // const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("fetching");
         fetch(remoteurl)
@@ -22,9 +22,32 @@ export default class StakeholderStore
         )
     }
 
+    deleteStakeholder(stakeholdername , stakeholderemail) {
+        const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder/" + stakeholdername + "/" + stakeholderemail;
+        console.log("fetching");
+        fetch(remoteurl , {method: 'DELETE'})
+            .then(()=> {
+                    console.log("deleted stakeholder with name and email " + stakeholdername + "  and " + stakeholderemail);
+                }
+            );
+        let x = this.findIndexInStakeholdersArray(stakeholdername , stakeholderemail);
+            this.stakeholders.splice(x, 1);
+
+    }
+
+    findIndexInStakeholdersArray(name , email)
+    {
+        for(let i = 0; this.stakeholders.length;i++)
+            {
+                if(this.stakeholders[i].name === name && this.stakeholders[i].email === email)
+                {
+                    return i;
+                }
+            }
+    }
     postStakeholder()
     {
-        const localurl = "http://localhost:8080/rest/stakeholder";
+        //const localurl = "http://localhost:8080/rest/stakeholder";
         const remoteurl = "https://projektstyringsvaerktoej.herokuapp.com/rest/stakeholder";
         console.log("posting");
         fetch(remoteurl, {
@@ -58,20 +81,26 @@ export default class StakeholderStore
     newStakeholderName = "";
     newStakeholderEmail = "";
     addStakeHolder = ()=> {
+        if(this.newStakeholderName !== "" && this.newStakeholderEmail !== "")
+        {
+            this.postStakeholder();
+            this.newStakeholderName="";
+            this.newStakeholderEmail="";
+        }
+        else
+        {
+            return "error";
+        }
 
-        this.postStakeholder();
-        this.newStakeholderName="";
-        this.newStakeholderEmail="";
     };
-    removeStakeholder(e) {
 
-    }
     message = (key)=>{
         alert("this is something"+ key);
     }
 
 
 }
+
 
 decorate(StakeholderStore, {
     stakeholders: observable,

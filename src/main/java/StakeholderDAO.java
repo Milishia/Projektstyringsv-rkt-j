@@ -8,5 +8,5 @@ public interface StakeholderDAO
 
     void postStakeholder(String payload);
 
-    void deleteStakeholder(String name);
+    void deleteStakeholder(String name, String email);
 }
