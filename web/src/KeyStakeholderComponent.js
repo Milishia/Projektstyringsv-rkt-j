@@ -45,7 +45,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                     <Col> {/*1 of 3*/}
 
                     </Col>
-                    <Col sm="auto"> {/*2 of 3*/}
+                    <Col xs="6"> {/*2 of 3*/}
                         <Card style={{ width: '33.6rem' }}>
                             <Card.Body>
                                 <Card.Title>Identificer Key stakeholders</Card.Title>

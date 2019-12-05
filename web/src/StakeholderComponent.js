@@ -33,7 +33,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                             <Nav.Link>Identificer Stakeholders</Nav.Link>
                             <Nav.Link onClick={()=>history.push("/keystakeholdercomponent")}>Identificer Key Stakeholders</Nav.Link>
                         </Nav>
-                            <Nav>
+                            <Nav className="mr-sm-2">
                                 <Button variant="light">Log ud</Button>
                             </Nav>
                         </Navbar.Collapse>
@@ -46,9 +46,9 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                 <Col> {/*1 of 3*/}
 
                 </Col>
-                <Col sm="auto"> {/*2 of 3*/}
+                <Col xs="6"> {/*2 of 3*/}
                     <Container>
-                    <Card style={{ width: '38.6rem' }}>
+                    <Card style={{ width: '33.6rem' }}>
                         <Card.Body>
                             <Card.Title>Identificer Stakeholders</Card.Title>
                             <Card.Text>
