@@ -6,17 +6,17 @@ import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import React from "react";
+import React, { Component } from 'react';
 import {stakeholderStore} from "./StakeholderStore";
 import {withRouter} from "react-router-dom";//
 import {observer} from "mobx-react";
 
 export const StakeholderComponent = withRouter (observer(({history}) => {
     return(
+        
     <div className="App">
         <Container>
             <Row>
-
                 <Col>{/*1 of 1*/}
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand >Projektstyringsværktøj</Navbar.Brand>
@@ -64,6 +64,7 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
 
                         {stakeholderStore.stakeholders.map((stakeholderName, key)=>
                             <tr key={key}><td>{key+1}</td><td>{stakeholderName.name}</td><td>{stakeholderName.email}</td></tr>)}
+
 
 
 
