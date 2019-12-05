@@ -7,11 +7,12 @@ import {BrowserRouter} from "react-router-dom"
 
 ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
 
-/*window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', (e) => {
     // Stash the event so it can be triggered later.
     console.log("Got beforeinstallprompt");
     window.deferredPrompt = e;
-});*/
+});
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
