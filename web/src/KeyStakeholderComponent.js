@@ -7,10 +7,11 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import {loginStore} from "./LoginStore";
 import {stakeholderStore} from "./StakeholderStore";
 import {withRouter} from "react-router-dom";
 import {observer} from "mobx-react";
-import InputGroup from "react-bootstrap/InputGroup"
+import InputGroup from "react-bootstrap/InputGroup";
 
 
 const KeyStakeholderComponent = withRouter(observer(({history}) => {
@@ -26,6 +27,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                                 width="40"
                                 height="40"
                                 className="d-inline-block align-top"
+                                onClick={() => window.location = "/"}
                             />
                             <Navbar.Brand >Dragon Planner</Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,7 +37,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                                     <Nav.Link >Identificer Key Stakeholders</Nav.Link>
                                 </Nav>
                                 <Nav className="mr-sm-2">
-                                    <Button variant="light">Log ud</Button>
+                                    <Button variant="light" onClick={()=>{loginStore.Logud()}}>Log ud</Button>
                                 </Nav>
                             </Navbar.Collapse>
                         </Navbar>
@@ -45,8 +47,8 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                     <Col> {/*1 of 3*/}
 
                     </Col>
-                    <Col sm="6"> {/*2 of 3*/}
-                            <Card style={{ width: '33.6rem' }}>
+                    <Col sm="9"> {/*2 of 3*/}
+                            <Card style={{ width: '51.5rem' }}>
                                 <Card.Body>
                                     <Card.Title>Identificer Key stakeholders</Card.Title>
                                     <Card.Text>
@@ -126,7 +128,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                             </Table>
                     </Col>
                     <Col>
-                        <Button variant="info">Færdig</Button>
+                        <Button variant="info" >Færdig</Button>
                     </Col>
                 </Row>
             </Container>

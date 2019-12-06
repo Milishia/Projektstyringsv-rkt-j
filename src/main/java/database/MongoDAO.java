@@ -1,5 +1,8 @@
+package database;
+
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import data.Stakeholder;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -10,7 +13,7 @@ public class MongoDAO implements StakeholderDAO {
     @Override
     public List<Stakeholder> getStakeholder()
     {
-        MongoCollection<Document> stakeholderCollection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
+        MongoCollection<Document> stakeholderCollection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
 
         List<Stakeholder> Stakeholders = new ArrayList<>();
 
@@ -31,7 +34,7 @@ public class MongoDAO implements StakeholderDAO {
     @Override
     public void postStakeholder(String payload)
     {
-        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
+        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
         Document document = new Document(Document.parse(payload));
         collection.insertOne(document);
     }
@@ -40,7 +43,7 @@ public class MongoDAO implements StakeholderDAO {
 
     public void deleteStakeholder(String name, String email)
     {
-        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
+        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
         Bson filter = Filters.and(Filters.eq("name" , name) , Filters.eq("email" , email));
         collection.deleteOne(filter);
     }

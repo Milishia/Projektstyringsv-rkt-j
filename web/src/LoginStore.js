@@ -4,8 +4,8 @@ export const Loginstates = {LOGGING_IN:"Loading", LOGGEDOUT:"Logout", LOGGED_IN:
 class LoginStore
 {
     state = Loginstates.LOGGEDOUT;
-    loginUsername = "";
-    loginPassword = "";
+    loginUsername = "brugernavn";
+    loginPassword = "password";
     token = null;
     triedToLogin=false;
 

@@ -48,8 +48,8 @@ export const StakeholderComponent = withRouter (observer(({history}) => {
                 <Col> {/*1 of 3*/}
 
                 </Col>
-                <Col sm="6"> {/*2 of 3*/}
-                        <Card style={{ width: '33.6rem' }}>
+                <Col sm="9"> {/*2 of 3*/}
+                        <Card style={{ width: '51.5rem' }}>
                             <Card.Body>
                                 <Card.Title>Identificer Stakeholders</Card.Title>
                                 <Card.Text>

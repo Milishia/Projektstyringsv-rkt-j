@@ -1,3 +1,9 @@
+package services;
+
+import data.LoginData;
+import data.User;
+import exceptions.NotAuthorizedException;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -9,10 +15,10 @@ public class LoginService {
 
 
     @POST
-    public String postLoginData(LoginData login) throws NotAuthorizedException{
+    public String getTokenFromUserdata(LoginData login) throws exceptions.NotAuthorizedException {
         System.out.println(login.getUsername());
         System.out.println(login.getPassword());
-        if (login!=null &&"brian".equals(login.getUsername()) && "kodeord".equals(login.getPassword())){
+        if (login!=null &&"brugernavn".equals(login.getUsername()) && "password".equals(login.getPassword())){
             return JWTHandler.generateJWT(new User(login.getUsername(), ""));
         }
         throw new NotAuthorizedException("forkert brugernavn/kodeord");
@@ -20,7 +26,7 @@ public class LoginService {
 
     @POST
     @Path("validateToken")
-    public User postToken(String token){
+    public User validateToken(String token){
         System.out.println("Validating ...");
         User validate = JWTHandler.validate(token);
         return validate;

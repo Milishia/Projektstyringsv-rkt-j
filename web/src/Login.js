@@ -28,6 +28,7 @@ export const Login = withRouter(observer(({history}) => {
                                 width="40"
                                 height="40"
                                 className="d-inline-block align-top"
+                                onClick={() => window.location.replace("")}
                             />
                             <Navbar.Brand>Dragon Planner - Login</Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />

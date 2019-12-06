@@ -1,4 +1,7 @@
+package services;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import data.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -45,7 +48,7 @@ public class JWTHandler
         return key;
     }
 
-    static User validate(String authentication)
+    public static User validate(String authentication)
     {
         String[] tokenArray = authentication.split(" ");
         String token = tokenArray[tokenArray.length - 1];

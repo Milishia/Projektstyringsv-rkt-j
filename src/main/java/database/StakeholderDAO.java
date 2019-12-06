@@ -1,3 +1,7 @@
+package database;
+
+import data.Stakeholder;
+
 import java.util.List;
 
 public interface StakeholderDAO

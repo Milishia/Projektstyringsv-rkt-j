@@ -1,3 +1,6 @@
+package services;
+
+import data.User;
 import kong.unirest.Unirest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -6,7 +9,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 @Path("inside")
-public class InsideLogin {
+public class InsideLoginService {
 
     @GET
     @Path("login")
