@@ -1,5 +1,6 @@
 package database;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import data.Stakeholder;
@@ -13,7 +14,7 @@ public class MongoDAO implements StakeholderDAO {
     @Override
     public List<Stakeholder> getStakeholder()
     {
-        MongoCollection<Document> stakeholderCollection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
+        MongoCollection<Document> stakeholderCollection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
 
         List<Stakeholder> Stakeholders = new ArrayList<>();
 
