@@ -35,7 +35,7 @@ public class MongoDAO implements StakeholderDAO {
     @Override
     public void postStakeholder(String payload)
     {
-        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
+        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
         Document document = new Document(Document.parse(payload));
         collection.insertOne(document);
     }
@@ -44,7 +44,7 @@ public class MongoDAO implements StakeholderDAO {
 
     public void deleteStakeholder(String name, String email)
     {
-        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("data.Stakeholder");
+        MongoCollection<Document> collection = MongoConnection.getInstance("Projektstyring").getDatabase().getCollection("Stakeholder");
         Bson filter = Filters.and(Filters.eq("name" , name) , Filters.eq("email" , email));
         collection.deleteOne(filter);
     }
