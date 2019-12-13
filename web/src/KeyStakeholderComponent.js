@@ -55,7 +55,7 @@ const KeyStakeholderComponent = withRouter(observer(({history}) => {
                                         I dette afsnit skal du identificere dine Keystakeholders ud fra D.A.N.C.E metoden.
                                         Hvad er D.A.N.C.E? <br /><br />
                                         <b>DECISIONS:</b> <br />
-                                        Tager beslutninger der kan har indflydelse på projektets budget.<br /><br />
+                                        Take deccision that influences the project budget <br /><br />
 
                                         <b>AUTHORITY:</b> <br />
                                         Have the authority to grant permission to proceed with the project.<br /><br />
